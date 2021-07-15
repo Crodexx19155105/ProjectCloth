@@ -1,5 +1,8 @@
 @import './HomeItem.css';
 @import './HomeItem_List.css';
+@import './ItemsProduct.css';
+@import './PreviewItems.css';
+@import './ProductListContainer.css';
 *,::after,::before{
     box-sizing: border-box;
 }
