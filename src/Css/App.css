@@ -3,6 +3,7 @@
 @import './ItemsProduct.css';
 @import './PreviewItems.css';
 @import './ProductListContainer.css';
+@import './Header.css';
 *,::after,::before{
     box-sizing: border-box;
 }

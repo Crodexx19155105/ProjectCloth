@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import '../Css/App.css';
+import Header from './HeaderComp/Header';
 import HomePage from './HomePageComponent/HomePage';
 import ShopPage from './ShopeComponent/ShopPage';
 const hats=()=>(
@@ -11,6 +12,7 @@ const hats=()=>(
 function App() {
   return (
     <div className="App">
+      <Header/>
       <Switch>
       <Route exact={true} path="/" component={HomePage}/>
 
