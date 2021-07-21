@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export default function Header() {
+import { auth } from '../firebase/firebase.utils'
+export default function Header({currUser}) {
     return (
         <div className="Header">
 
@@ -10,7 +11,8 @@ export default function Header() {
             <div className="options_container">
             <Link to="/shop" className="link options">SHOP</Link>
             <Link to="/contact" className="link options">CONTACT</Link>
-            <Link to="/signin" className="link options">SIGN-IN</Link>
+            {currUser ?  <div className="link options" onClick={()=>{auth.signOut()}}>SIGN-OUT</div>:
+            <Link to="/signin" className="link options">SIGN-IN</Link>   }
 
 
             </div>
