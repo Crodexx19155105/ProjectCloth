@@ -3,6 +3,7 @@ import '../Css/App.css';
 import Header from './HeaderComp/Header';
 import HomePage from './HomePageComponent/HomePage';
 import ShopPage from './ShopeComponent/ShopPage';
+import User from './UserAuthenticationComponent/User';
 const hats=()=>(
   <div>
     <h1>HATS PAGE</h1>
@@ -18,6 +19,7 @@ function App() {
 
       <Route exact={true} path="/hats" component={hats}/>
       <Route exact={true} path="/shop" component={ShopPage}/>
+      <Route exact={true} path="/SignIn" component={User}/>
       </Switch>
     </div>
   );
