@@ -9,20 +9,29 @@ function SignIn() {
         Email:'',
         Password:'',
     })
-    const handlesign=()=>{
+    const handlesign=async ()=>{
         try {
-            
-            SignUpWithGoogle();
+            if(auth.currentUser){
+            alert("User Already Signed IN");
+            return;
+            }
+            await SignUpWithGoogle();
+            window.location="/";
         } catch (error) {
             console.error();
         }
     }
-    const handleSignINEmailandPass=(e)=>{
+    const handleSignINEmailandPass=async (e)=>{
         e.preventDefault();
+        if(auth.currentUser){
+            alert("User Already Signed IN");
+            return;
+        }
         try {
             const {Email,Password}=UserDetails;
             
-            auth.signInWithEmailAndPassword(Email,Password);
+            await auth.signInWithEmailAndPassword(Email,Password);
+            window.location="/";
             setUserDetails({
                 Email:'',
             Password:'',
