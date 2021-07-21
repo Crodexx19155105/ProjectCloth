@@ -5,6 +5,14 @@ import { SignUpWithGoogle} from '../firebase/firebase.utils.js'
 
 
 function SignIn() {
+    const handlesign=()=>{
+        try {
+            
+            SignUpWithGoogle();
+        } catch (error) {
+            console.error();
+        }
+    }
     const [UserDetails, setUserDetails] = useState({
         Email:'',
         Password:'',
@@ -36,7 +44,7 @@ function SignIn() {
                 <FormComp name="Email" type="email" value={UserDetails.Email} required handleChange={handleClick} label="Email"/>
                 <FormComp name="Password" type="password" value={UserDetails.Password} required handleChange={handleClick} label="Password"/>
                 <Button>SIGN-IN</Button>
-                <Button style={{backgroundColor:"rgb(66,133,244)"}} onClick={SignUpWithGoogle}>SIGN-IN WITH GOOGLE</Button>
+                <Button style={{backgroundColor:"rgb(66,133,244)"}} onClick={handlesign}>SIGN-IN WITH GOOGLE</Button>
             </form>
             
         </div>

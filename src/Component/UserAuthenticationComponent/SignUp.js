@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from '../buttonComponenet/button';
+import { auth, CreateUserProfile } from '../firebase/firebase.utils';
 import FormComp from '../Form/FormComp';
 
 function SignIn() {
@@ -11,17 +12,31 @@ function SignIn() {
     })
 
 
-    const handleSubmit=(e)=>{
+    const handleSubmit=async (e)=>{
         e.preventDefault();
-        const {Password,ConfirmPassword}=UserDetails;
-        if(Password!=ConfirmPassword)
+        const {DisplayName,Email,Password,ConfirmPassword}=UserDetails;
+        if(Password!==ConfirmPassword){
         alert('BHosdiek Sahi passworddaalo');
-        setUserDetails({
-            DisplayName:'',
-            Email:'',
-            Password:'',
-            ConfirmPassword:'',
-        })
+        return;
+        }
+        const CreateDate=new Date();
+        try{
+            const {userRef}=auth.createUserWithEmailAndPassword(Email,Password);
+            CreateUserProfile(userRef,{
+                DisplayName,
+                CreateDate,
+            })
+
+            setUserDetails({
+                DisplayName:'',
+                Email:'',
+                Password:'',
+                ConfirmPassword:'',
+            })
+        }catch(error){
+            console.error();
+
+        }
     }
     const handleClick=(e)=>{
         const {name,value}=e.target;

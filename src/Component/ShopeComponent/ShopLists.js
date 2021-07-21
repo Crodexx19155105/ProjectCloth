@@ -5,7 +5,7 @@ function ShopLists({title,items}) {
     const [randArr, setrandArr] = useState([]);
     const myset=new Set();
     useEffect(() => {
-        while(myset.size!=4) {
+        while(myset.size!==4) {
             var num=Math.floor(Math.random()*8) + 1;
             myset.add(num);
             
@@ -20,7 +20,7 @@ function ShopLists({title,items}) {
             <div className="Item_GridContainer">
                 
             {items.map((prod)=>
-            (randArr.some((el)=>el==prod.id)) &&<ShopItem key={prod.id} {...prod}/>)}
+            (randArr.some((el)=>el===prod.id)) &&<ShopItem key={prod.id} {...prod}/>)}
             
 
 
