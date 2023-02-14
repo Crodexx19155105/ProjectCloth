@@ -19,6 +19,11 @@ function SignIn() {
             window.location="/";
         } catch (error) {
             console.error();
+            alert("Invalid Email and Password");
+            setUserDetails({
+                Email:'',
+            Password:'',
+            })
         }
     }
     const handleSignINEmailandPass=async (e)=>{
@@ -38,6 +43,7 @@ function SignIn() {
             })
         } catch (error) {
             console.error();
+            alert("Invalid Email and Password");
         }
     }
     const handleClick=(e)=>{
